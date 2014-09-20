@@ -8,13 +8,13 @@
 ## node.set['kibana']['user'] = node['nginx']['user']
 ## include_recipe 'kibana::install'
 #################
-# Workaround for excluding default 
+# Workaround for excluding default kibana-nginx site
 
 kibana_install 'kibana' do
-  user          node['nginx']['user']
-  group         node['nginx']['group']
-  install_dir   node['kibana']['install_dir']
-  install_type  node['kibana']['install_type']
+  user node['nginx']['user']
+  group node['nginx']['group']
+  install_dir node['kibana']['install_dir']
+  install_type node['kibana']['install_type']
   action :create
 end
 

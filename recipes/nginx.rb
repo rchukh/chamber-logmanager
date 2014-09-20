@@ -9,12 +9,12 @@ if !node['nginx']['default_site_enabled'] && (node['platform_family'] == 'rhel' 
   end
 end
 
-node['chamber']['nginx']['dir'].each do |var, path|
+node['chamber']['nginx']['dir'].each do |_var, path|
   directory path do
-    mode      '0755'
-    owner     node['nginx']['user']
-    group     node['nginx']['group']
-    action    :create
+    mode '0755'
+    owner node['nginx']['user']
+    group node['nginx']['group']
+    action :create
     recursive true
   end
 end
