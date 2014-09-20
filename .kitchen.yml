@@ -1,0 +1,29 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+  vagrantfile_erb: .kitchen.Vagrantfile.erb
+  plugins:
+    cachier:
+      cache:
+        scope: ":box"
+        auto_detect: true
+        enable:
+          - chef
+          - yum
+  customize:
+    memory: 512
+
+provisioner:
+  name: chef_solo
+  solo_rb:
+      ssl_verify_mode: verify_peer
+
+platforms:
+  - name: centos-6.5
+
+suites:
+  - name: default
+    run_list:
+      - recipe[chamber-logmanager::default]
+    attributes:
