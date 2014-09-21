@@ -9,6 +9,7 @@
 ## include_recipe 'kibana::install'
 #################
 # Workaround for excluding default kibana-nginx site
+# TODO: Consider using chef-rewind instead of copy-pasting half of the book!
 
 kibana_install 'kibana' do
   user node['nginx']['user']
