@@ -9,8 +9,9 @@ driver_config:
         scope: ":box"
         auto_detect: false
         enable:
-          - chef
           - yum
+        generic_buckets:
+          - ['chef', '/var/chef/cache']
   network:
   - ["forwarded_port", {guest: 80, host: 8080}]
   - ["forwarded_port", {guest: 9200, host: 9200}]
@@ -42,3 +43,16 @@ suites:
             - nginx::http_stub_status_module
       elasticsearch:
         version: '1.3.2'
+      logstash:
+        instance:
+          server:
+            xms: '256M'
+            xmx: '256M'
+#            config_templates:
+#              input_syslog: 'config/input_syslog.conf.erb'
+#              output_stdout: 'config/output_stdout.conf.erb'
+#              output_elasticsearch: 'config/output_elasticsearch.conf.erb'
+#            pattern_templates:
+#              default: 'patterns/custom_patterns.erb'
+            elasticsearch_ip: '127.0.0.1'
+            enable_embedded_es: false
