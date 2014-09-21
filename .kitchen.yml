@@ -9,8 +9,9 @@ driver_config:
         scope: ":box"
         auto_detect: false
         enable:
-          - chef
           - yum
+        generic_buckets:
+          - ['chef', '/var/chef/cache']
   network:
   - ["forwarded_port", {guest: 80, host: 8080}]
   - ["forwarded_port", {guest: 9200, host: 9200}]
