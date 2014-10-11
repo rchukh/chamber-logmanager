@@ -18,7 +18,7 @@ driver_config:
   # ElasticSearch
   - ["forwarded_port", {guest: 9200, host: 9200}]
   customize:
-    memory: 512
+    memory: 1024
 
 provisioner:
   name: chef_solo
