@@ -8,7 +8,7 @@ version          '0.0.2'
 
 supports 'centos'
 
-depends 'chef-sugar', '~> 2.2'
+depends 'chef-sugar', '~> 2.3'
 
 depends 'java', '~> 1.28.0'
 depends 'nginx', '~> 2.7.4'
