@@ -38,7 +38,7 @@ suites:
       java:
         jdk_version: '7'
       elasticsearch:
-        version: '1.4.0.beta1'
+        version: '1.4.0.Beta1'
       logstash:
         instance:
           server:
