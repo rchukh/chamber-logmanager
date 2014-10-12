@@ -1,7 +1,7 @@
 {
-  "name": "chamber-logmanager",
-  "repository": "https://github.com/rchukh/chamber-logmanager",
-  "version": "0.0.3",
+  "name": "chamber-logstash",
+  "repository": "https://github.com/rchukh/chamber-logstash",
+  "version": "0.1.0",
   "devDependencies": {
     "grunt": "latest",
     "grunt-conventional-changelog": "latest"

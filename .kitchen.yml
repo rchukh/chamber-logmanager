@@ -33,25 +33,31 @@ suites:
   - name: default
     run_list:
       - recipe[java::default]
-      - recipe[chamber-logmanager::default]
+      - recipe[elasticsearch::default]
+      - recipe[chamber-kibana::default]
+      - recipe[chamber-logstash::default]
     attributes:
       java:
         jdk_version: '7'
       elasticsearch:
         version: '1.4.0.Beta1'
+        allocated_memory: '256m'
       logstash:
         instance:
           server:
             xms: '256M'
             xmx: '256M'
-#            config_templates:
-#              input_syslog: 'config/input_syslog.conf.erb'
-#              output_stdout: 'config/output_stdout.conf.erb'
-#              output_elasticsearch: 'config/output_elasticsearch.conf.erb'
+            config_templates_cookbook: 'chamber-logstash'
+            config_templates:
+              input_default: 'config/input_default.conf.erb'
+              output_default: 'config/output_default.conf.erb'
+            config_templates_variables:
+              elasticsearch_ip: '127.0.0.1'
+              elasticsearch_protocol: 'http'
+#            pattern_templates_cookbook: 'chamber-logmanager'
 #            pattern_templates:
 #              default: 'patterns/custom_patterns.erb'
-            elasticsearch_ip: '127.0.0.1'
-            enable_embedded_es: false
+#      # Using defaults for now
 #      kibana:
 #        version: '4.0.0-BETA1.1' # must match version number of above
 #        checksum: '0010e467d598b67ba442c2edc5c6df196e8734f826044a58e0da3490a1bb587a' # sha256 ( shasum -a 256 FILENAME )

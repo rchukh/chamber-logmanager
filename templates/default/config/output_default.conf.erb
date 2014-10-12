@@ -1,0 +1,10 @@
+output {
+  elasticsearch {
+<% if @elasticsearch_protocol -%>
+    protocol => "<%= @elasticsearch_protocol %>"
+<% end -%>
+<% if @elasticsearch_ip -%>
+    host => "<%= @elasticsearch_ip %>"
+<% end -%>
+  }
+}
