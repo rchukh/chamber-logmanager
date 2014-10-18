@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'chef'
 gem 'rake'
-gem 'chef-rewind', '~> 0.0.8'
+gem 'stove'
 
 group :development do
   gem 'berkshelf'
